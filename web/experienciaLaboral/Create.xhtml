@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateExperienciaLaboralTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{experienciaLaboralController.selected.id}" title="#{bundle.CreateExperienciaLaboralTitle_id}" required="true" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_nombreEmpresa}" for="nombreEmpresa" />
+                    <h:inputText id="nombreEmpresa" value="#{experienciaLaboralController.selected.nombreEmpresa}" title="#{bundle.CreateExperienciaLaboralTitle_nombreEmpresa}" required="true" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_nombreEmpresa}"/>
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_cargo}" for="cargo" />
+                    <h:inputText id="cargo" value="#{experienciaLaboralController.selected.cargo}" title="#{bundle.CreateExperienciaLaboralTitle_cargo}" required="true" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_cargo}"/>
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_fechaIn}" for="fechaIn" />
+                    <h:inputText id="fechaIn" value="#{experienciaLaboralController.selected.fechaIn}" title="#{bundle.CreateExperienciaLaboralTitle_fechaIn}" required="true" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_fechaIn}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_fechaOu}" for="fechaOu" />
+                    <h:inputText id="fechaOu" value="#{experienciaLaboralController.selected.fechaOu}" title="#{bundle.CreateExperienciaLaboralTitle_fechaOu}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_actividadEmpresa}" for="actividadEmpresa" />
+                    <h:inputText id="actividadEmpresa" value="#{experienciaLaboralController.selected.actividadEmpresa}" title="#{bundle.CreateExperienciaLaboralTitle_actividadEmpresa}" required="true" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_actividadEmpresa}"/>
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_tipoCargo}" for="tipoCargo" />
+                    <h:inputText id="tipoCargo" value="#{experienciaLaboralController.selected.tipoCargo}" title="#{bundle.CreateExperienciaLaboralTitle_tipoCargo}" required="true" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_tipoCargo}"/>
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_descripcionTarea}" for="descripcionTarea" />
+                    <h:inputText id="descripcionTarea" value="#{experienciaLaboralController.selected.descripcionTarea}" title="#{bundle.CreateExperienciaLaboralTitle_descripcionTarea}" required="true" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_descripcionTarea}"/>
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_experienciaLaboralcol}" for="experienciaLaboralcol" />
+                    <h:inputText id="experienciaLaboralcol" value="#{experienciaLaboralController.selected.experienciaLaboralcol}" title="#{bundle.CreateExperienciaLaboralTitle_experienciaLaboralcol}" />
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_area}" for="area" />
+                    <h:selectOneMenu id="area" value="#{experienciaLaboralController.selected.area}" title="#{bundle.CreateExperienciaLaboralTitle_area}" required="true" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_area}">
+                        <f:selectItems value="#{areaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateExperienciaLaboralLabel_aspirante}" for="aspirante" />
+                    <h:selectOneMenu id="aspirante" value="#{experienciaLaboralController.selected.aspirante}" title="#{bundle.CreateExperienciaLaboralTitle_aspirante}" required="true" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_aspirante}">
+                        <f:selectItems value="#{datosPersonalesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{experienciaLaboralController.create}" value="#{bundle.CreateExperienciaLaboralSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{experienciaLaboralController.prepareList}" value="#{bundle.CreateExperienciaLaboralShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateExperienciaLaboralIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

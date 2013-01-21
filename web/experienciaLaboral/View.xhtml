@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewExperienciaLaboralTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_id}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.id}" title="#{bundle.ViewExperienciaLaboralTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_nombreEmpresa}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.nombreEmpresa}" title="#{bundle.ViewExperienciaLaboralTitle_nombreEmpresa}"/>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_cargo}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.cargo}" title="#{bundle.ViewExperienciaLaboralTitle_cargo}"/>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_fechaIn}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.fechaIn}" title="#{bundle.ViewExperienciaLaboralTitle_fechaIn}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_fechaOu}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.fechaOu}" title="#{bundle.ViewExperienciaLaboralTitle_fechaOu}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_actividadEmpresa}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.actividadEmpresa}" title="#{bundle.ViewExperienciaLaboralTitle_actividadEmpresa}"/>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_tipoCargo}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.tipoCargo}" title="#{bundle.ViewExperienciaLaboralTitle_tipoCargo}"/>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_descripcionTarea}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.descripcionTarea}" title="#{bundle.ViewExperienciaLaboralTitle_descripcionTarea}"/>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_experienciaLaboralcol}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.experienciaLaboralcol}" title="#{bundle.ViewExperienciaLaboralTitle_experienciaLaboralcol}"/>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_area}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.area}" title="#{bundle.ViewExperienciaLaboralTitle_area}"/>
+                    <h:outputText value="#{bundle.ViewExperienciaLaboralLabel_aspirante}"/>
+                    <h:outputText value="#{experienciaLaboralController.selected.aspirante}" title="#{bundle.ViewExperienciaLaboralTitle_aspirante}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{experienciaLaboralController.destroyAndView}" value="#{bundle.ViewExperienciaLaboralDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewExperienciaLaboralEditLink}"/>
+                <br />
+                <h:commandLink action="#{experienciaLaboralController.prepareCreate}" value="#{bundle.ViewExperienciaLaboralCreateLink}" />
+                <br />
+                <h:commandLink action="#{experienciaLaboralController.prepareList}" value="#{bundle.ViewExperienciaLaboralShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewExperienciaLaboralIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

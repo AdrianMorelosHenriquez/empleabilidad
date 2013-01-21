@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEmpresasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_nit}" for="nit" />
+                    <h:inputText id="nit" value="#{empresasController.selected.nit}" title="#{bundle.CreateEmpresasTitle_nit}" required="true" requiredMessage="#{bundle.CreateEmpresasRequiredMessage_nit}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{empresasController.selected.nombre}" title="#{bundle.CreateEmpresasTitle_nombre}" required="true" requiredMessage="#{bundle.CreateEmpresasRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_actividad}" for="actividad" />
+                    <h:inputText id="actividad" value="#{empresasController.selected.actividad}" title="#{bundle.CreateEmpresasTitle_actividad}" required="true" requiredMessage="#{bundle.CreateEmpresasRequiredMessage_actividad}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_nombreContacto}" for="nombreContacto" />
+                    <h:inputText id="nombreContacto" value="#{empresasController.selected.nombreContacto}" title="#{bundle.CreateEmpresasTitle_nombreContacto}" required="true" requiredMessage="#{bundle.CreateEmpresasRequiredMessage_nombreContacto}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_representanteLegal}" for="representanteLegal" />
+                    <h:inputText id="representanteLegal" value="#{empresasController.selected.representanteLegal}" title="#{bundle.CreateEmpresasTitle_representanteLegal}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_celularContacto}" for="celularContacto" />
+                    <h:inputText id="celularContacto" value="#{empresasController.selected.celularContacto}" title="#{bundle.CreateEmpresasTitle_celularContacto}" required="true" requiredMessage="#{bundle.CreateEmpresasRequiredMessage_celularContacto}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_telefonoContacto}" for="telefonoContacto" />
+                    <h:inputText id="telefonoContacto" value="#{empresasController.selected.telefonoContacto}" title="#{bundle.CreateEmpresasTitle_telefonoContacto}" required="true" requiredMessage="#{bundle.CreateEmpresasRequiredMessage_telefonoContacto}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{empresasController.selected.direccion}" title="#{bundle.CreateEmpresasTitle_direccion}" required="true" requiredMessage="#{bundle.CreateEmpresasRequiredMessage_direccion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{empresasController.create}" value="#{bundle.CreateEmpresasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{empresasController.prepareList}" value="#{bundle.CreateEmpresasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEmpresasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

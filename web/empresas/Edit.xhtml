@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEmpresasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEmpresasLabel_nit}" for="nit" />
+                    <h:inputText id="nit" value="#{empresasController.selected.nit}" title="#{bundle.EditEmpresasTitle_nit}" required="true" requiredMessage="#{bundle.EditEmpresasRequiredMessage_nit}"/>
+                    <h:outputLabel value="#{bundle.EditEmpresasLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{empresasController.selected.nombre}" title="#{bundle.EditEmpresasTitle_nombre}" required="true" requiredMessage="#{bundle.EditEmpresasRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditEmpresasLabel_actividad}" for="actividad" />
+                    <h:inputText id="actividad" value="#{empresasController.selected.actividad}" title="#{bundle.EditEmpresasTitle_actividad}" required="true" requiredMessage="#{bundle.EditEmpresasRequiredMessage_actividad}"/>
+                    <h:outputLabel value="#{bundle.EditEmpresasLabel_nombreContacto}" for="nombreContacto" />
+                    <h:inputText id="nombreContacto" value="#{empresasController.selected.nombreContacto}" title="#{bundle.EditEmpresasTitle_nombreContacto}" required="true" requiredMessage="#{bundle.EditEmpresasRequiredMessage_nombreContacto}"/>
+                    <h:outputLabel value="#{bundle.EditEmpresasLabel_representanteLegal}" for="representanteLegal" />
+                    <h:inputText id="representanteLegal" value="#{empresasController.selected.representanteLegal}" title="#{bundle.EditEmpresasTitle_representanteLegal}" />
+                    <h:outputLabel value="#{bundle.EditEmpresasLabel_celularContacto}" for="celularContacto" />
+                    <h:inputText id="celularContacto" value="#{empresasController.selected.celularContacto}" title="#{bundle.EditEmpresasTitle_celularContacto}" required="true" requiredMessage="#{bundle.EditEmpresasRequiredMessage_celularContacto}"/>
+                    <h:outputLabel value="#{bundle.EditEmpresasLabel_telefonoContacto}" for="telefonoContacto" />
+                    <h:inputText id="telefonoContacto" value="#{empresasController.selected.telefonoContacto}" title="#{bundle.EditEmpresasTitle_telefonoContacto}" required="true" requiredMessage="#{bundle.EditEmpresasRequiredMessage_telefonoContacto}"/>
+                    <h:outputLabel value="#{bundle.EditEmpresasLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{empresasController.selected.direccion}" title="#{bundle.EditEmpresasTitle_direccion}" required="true" requiredMessage="#{bundle.EditEmpresasRequiredMessage_direccion}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{empresasController.update}" value="#{bundle.EditEmpresasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEmpresasViewLink}"/>
+                <br />
+                <h:commandLink action="#{empresasController.prepareList}" value="#{bundle.EditEmpresasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEmpresasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="empleabilidadPU" transaction-type="JTA">
+    <jta-data-source>empleabilidad</jta-data-source>
+    <class>jpa.entities.Evaluaciones</class>
+    <class>jpa.entities.Estudios</class>
+    <class>jpa.entities.Inscripcion</class>
+    <class>jpa.entities.DatosPersonales</class>
+    <class>jpa.entities.Ofertas</class>
+    <class>jpa.entities.CapacidadesPorEstudios</class>
+    <class>jpa.entities.ExperienciaLaboral</class>
+    <class>jpa.entities.Profesion</class>
+    <class>jpa.entities.Area</class>
+    <class>jpa.entities.Referencias</class>
+    <class>jpa.entities.CapacidadesPorOfertas</class>
+    <class>jpa.entities.Capacidad</class>
+    <class>jpa.entities.ProfesionesPorAspirante</class>
+    <class>jpa.entities.CapacidadesPorExperiencias</class>
+    <class>jpa.entities.ProfesionesPorOferta</class>
+    <class>jpa.entities.Pruebas</class>
+    <class>jpa.entities.Empresas</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>

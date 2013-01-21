@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditReferenciasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{referenciasController.selected.id}" title="#{bundle.EditReferenciasTitle_id}" required="true" requiredMessage="#{bundle.EditReferenciasRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{referenciasController.selected.nombre}" title="#{bundle.EditReferenciasTitle_nombre}" required="true" requiredMessage="#{bundle.EditReferenciasRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{referenciasController.selected.telefono}" title="#{bundle.EditReferenciasTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_celular}" for="celular" />
+                    <h:inputText id="celular" value="#{referenciasController.selected.celular}" title="#{bundle.EditReferenciasTitle_celular}" required="true" requiredMessage="#{bundle.EditReferenciasRequiredMessage_celular}"/>
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{referenciasController.selected.email}" title="#{bundle.EditReferenciasTitle_email}" required="true" requiredMessage="#{bundle.EditReferenciasRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{referenciasController.selected.direccion}" title="#{bundle.EditReferenciasTitle_direccion}" required="true" requiredMessage="#{bundle.EditReferenciasRequiredMessage_direccion}"/>
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_barrio}" for="barrio" />
+                    <h:inputText id="barrio" value="#{referenciasController.selected.barrio}" title="#{bundle.EditReferenciasTitle_barrio}" required="true" requiredMessage="#{bundle.EditReferenciasRequiredMessage_barrio}"/>
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_ciudad}" for="ciudad" />
+                    <h:inputText id="ciudad" value="#{referenciasController.selected.ciudad}" title="#{bundle.EditReferenciasTitle_ciudad}" required="true" requiredMessage="#{bundle.EditReferenciasRequiredMessage_ciudad}"/>
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_profesion}" for="profesion" />
+                    <h:inputText id="profesion" value="#{referenciasController.selected.profesion}" title="#{bundle.EditReferenciasTitle_profesion}" />
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_cargo}" for="cargo" />
+                    <h:inputText id="cargo" value="#{referenciasController.selected.cargo}" title="#{bundle.EditReferenciasTitle_cargo}" />
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{referenciasController.selected.tipo}" title="#{bundle.EditReferenciasTitle_tipo}" required="true" requiredMessage="#{bundle.EditReferenciasRequiredMessage_tipo}"/>
+                    <h:outputLabel value="#{bundle.EditReferenciasLabel_aspirante}" for="aspirante" />
+                    <h:selectOneMenu id="aspirante" value="#{referenciasController.selected.aspirante}" title="#{bundle.EditReferenciasTitle_aspirante}" required="true" requiredMessage="#{bundle.EditReferenciasRequiredMessage_aspirante}">
+                        <f:selectItems value="#{datosPersonalesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{referenciasController.update}" value="#{bundle.EditReferenciasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditReferenciasViewLink}"/>
+                <br />
+                <h:commandLink action="#{referenciasController.prepareList}" value="#{bundle.EditReferenciasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditReferenciasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

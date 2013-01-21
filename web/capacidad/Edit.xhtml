@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCapacidadTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCapacidadLabel_idcapacidad}" for="idcapacidad" />
+                    <h:inputText id="idcapacidad" value="#{capacidadController.selected.idcapacidad}" title="#{bundle.EditCapacidadTitle_idcapacidad}" required="true" requiredMessage="#{bundle.EditCapacidadRequiredMessage_idcapacidad}"/>
+                    <h:outputLabel value="#{bundle.EditCapacidadLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{capacidadController.selected.nombre}" title="#{bundle.EditCapacidadTitle_nombre}" required="true" requiredMessage="#{bundle.EditCapacidadRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditCapacidadLabel_area}" for="area" />
+                    <h:selectOneMenu id="area" value="#{capacidadController.selected.area}" title="#{bundle.EditCapacidadTitle_area}" required="true" requiredMessage="#{bundle.EditCapacidadRequiredMessage_area}">
+                        <f:selectItems value="#{areaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{capacidadController.update}" value="#{bundle.EditCapacidadSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCapacidadViewLink}"/>
+                <br />
+                <h:commandLink action="#{capacidadController.prepareList}" value="#{bundle.EditCapacidadShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCapacidadIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

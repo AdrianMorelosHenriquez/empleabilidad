@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEstudiosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_idestudios}"/>
+                    <h:outputText value="#{estudiosController.selected.idestudios}" title="#{bundle.ViewEstudiosTitle_idestudios}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_titulo}"/>
+                    <h:outputText value="#{estudiosController.selected.titulo}" title="#{bundle.ViewEstudiosTitle_titulo}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_institucion}"/>
+                    <h:outputText value="#{estudiosController.selected.institucion}" title="#{bundle.ViewEstudiosTitle_institucion}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_ciudad}"/>
+                    <h:outputText value="#{estudiosController.selected.ciudad}" title="#{bundle.ViewEstudiosTitle_ciudad}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_fechaTitulacion}"/>
+                    <h:outputText value="#{estudiosController.selected.fechaTitulacion}" title="#{bundle.ViewEstudiosTitle_fechaTitulacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_nivelEstudio}"/>
+                    <h:outputText value="#{estudiosController.selected.nivelEstudio}" title="#{bundle.ViewEstudiosTitle_nivelEstudio}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_estadoEstudio}"/>
+                    <h:outputText value="#{estudiosController.selected.estadoEstudio}" title="#{bundle.ViewEstudiosTitle_estadoEstudio}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_areaEstudio}"/>
+                    <h:outputText value="#{estudiosController.selected.areaEstudio}" title="#{bundle.ViewEstudiosTitle_areaEstudio}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_fechaStart}"/>
+                    <h:outputText value="#{estudiosController.selected.fechaStart}" title="#{bundle.ViewEstudiosTitle_fechaStart}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_tipoEstudio}"/>
+                    <h:outputText value="#{estudiosController.selected.tipoEstudio}" title="#{bundle.ViewEstudiosTitle_tipoEstudio}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_promedio}"/>
+                    <h:outputText value="#{estudiosController.selected.promedio}" title="#{bundle.ViewEstudiosTitle_promedio}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_materiasCarrera}"/>
+                    <h:outputText value="#{estudiosController.selected.materiasCarrera}" title="#{bundle.ViewEstudiosTitle_materiasCarrera}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_materiasCursadas}"/>
+                    <h:outputText value="#{estudiosController.selected.materiasCursadas}" title="#{bundle.ViewEstudiosTitle_materiasCursadas}"/>
+                    <h:outputText value="#{bundle.ViewEstudiosLabel_aspirante}"/>
+                    <h:outputText value="#{estudiosController.selected.aspirante}" title="#{bundle.ViewEstudiosTitle_aspirante}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{estudiosController.destroyAndView}" value="#{bundle.ViewEstudiosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEstudiosEditLink}"/>
+                <br />
+                <h:commandLink action="#{estudiosController.prepareCreate}" value="#{bundle.ViewEstudiosCreateLink}" />
+                <br />
+                <h:commandLink action="#{estudiosController.prepareList}" value="#{bundle.ViewEstudiosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEstudiosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

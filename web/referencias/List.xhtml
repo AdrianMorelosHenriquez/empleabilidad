@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListReferenciasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListReferenciasEmpty}" rendered="#{referenciasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{referenciasController.items.rowCount > 0}">
+                    <h:outputText value="#{referenciasController.pagination.pageFirstItem + 1}..#{referenciasController.pagination.pageLastItem + 1}/#{referenciasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{referenciasController.previous}" value="#{bundle.Previous} #{referenciasController.pagination.pageSize}" rendered="#{referenciasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{referenciasController.next}" value="#{bundle.Next} #{referenciasController.pagination.pageSize}" rendered="#{referenciasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{referenciasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_celular}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.celular}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_direccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_barrio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.barrio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_ciudad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ciudad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_profesion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.profesion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_cargo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cargo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReferenciasTitle_aspirante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aspirante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{referenciasController.prepareView}" value="#{bundle.ListReferenciasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{referenciasController.prepareEdit}" value="#{bundle.ListReferenciasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{referenciasController.destroy}" value="#{bundle.ListReferenciasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{referenciasController.prepareCreate}" value="#{bundle.ListReferenciasCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListReferenciasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

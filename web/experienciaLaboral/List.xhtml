@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListExperienciaLaboralTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListExperienciaLaboralEmpty}" rendered="#{experienciaLaboralController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{experienciaLaboralController.items.rowCount > 0}">
+                    <h:outputText value="#{experienciaLaboralController.pagination.pageFirstItem + 1}..#{experienciaLaboralController.pagination.pageLastItem + 1}/#{experienciaLaboralController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{experienciaLaboralController.previous}" value="#{bundle.Previous} #{experienciaLaboralController.pagination.pageSize}" rendered="#{experienciaLaboralController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{experienciaLaboralController.next}" value="#{bundle.Next} #{experienciaLaboralController.pagination.pageSize}" rendered="#{experienciaLaboralController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{experienciaLaboralController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_nombreEmpresa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreEmpresa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_cargo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cargo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_fechaIn}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaIn}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_fechaOu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaOu}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_actividadEmpresa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.actividadEmpresa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_tipoCargo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoCargo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_descripcionTarea}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcionTarea}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_experienciaLaboralcol}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.experienciaLaboralcol}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_area}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.area}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListExperienciaLaboralTitle_aspirante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aspirante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{experienciaLaboralController.prepareView}" value="#{bundle.ListExperienciaLaboralViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{experienciaLaboralController.prepareEdit}" value="#{bundle.ListExperienciaLaboralEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{experienciaLaboralController.destroy}" value="#{bundle.ListExperienciaLaboralDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{experienciaLaboralController.prepareCreate}" value="#{bundle.ListExperienciaLaboralCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListExperienciaLaboralIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

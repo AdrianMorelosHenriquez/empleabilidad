@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProfesionesPorOfertaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProfesionesPorOfertaLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{profesionesPorOfertaController.selected.id}" title="#{bundle.CreateProfesionesPorOfertaTitle_id}" required="true" requiredMessage="#{bundle.CreateProfesionesPorOfertaRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateProfesionesPorOfertaLabel_profesion}" for="profesion" />
+                    <h:selectOneMenu id="profesion" value="#{profesionesPorOfertaController.selected.profesion}" title="#{bundle.CreateProfesionesPorOfertaTitle_profesion}" required="true" requiredMessage="#{bundle.CreateProfesionesPorOfertaRequiredMessage_profesion}">
+                        <f:selectItems value="#{profesionController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProfesionesPorOfertaLabel_oferta}" for="oferta" />
+                    <h:selectOneMenu id="oferta" value="#{profesionesPorOfertaController.selected.oferta}" title="#{bundle.CreateProfesionesPorOfertaTitle_oferta}" required="true" requiredMessage="#{bundle.CreateProfesionesPorOfertaRequiredMessage_oferta}">
+                        <f:selectItems value="#{ofertasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{profesionesPorOfertaController.create}" value="#{bundle.CreateProfesionesPorOfertaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{profesionesPorOfertaController.prepareList}" value="#{bundle.CreateProfesionesPorOfertaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProfesionesPorOfertaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

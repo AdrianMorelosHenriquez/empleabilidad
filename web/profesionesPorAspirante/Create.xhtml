@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProfesionesPorAspiranteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProfesionesPorAspiranteLabel_idprofesonesAspirante}" for="idprofesonesAspirante" />
+                    <h:inputText id="idprofesonesAspirante" value="#{profesionesPorAspiranteController.selected.idprofesonesAspirante}" title="#{bundle.CreateProfesionesPorAspiranteTitle_idprofesonesAspirante}" required="true" requiredMessage="#{bundle.CreateProfesionesPorAspiranteRequiredMessage_idprofesonesAspirante}"/>
+                    <h:outputLabel value="#{bundle.CreateProfesionesPorAspiranteLabel_aspirante}" for="aspirante" />
+                    <h:selectOneMenu id="aspirante" value="#{profesionesPorAspiranteController.selected.aspirante}" title="#{bundle.CreateProfesionesPorAspiranteTitle_aspirante}" required="true" requiredMessage="#{bundle.CreateProfesionesPorAspiranteRequiredMessage_aspirante}">
+                        <f:selectItems value="#{datosPersonalesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProfesionesPorAspiranteLabel_profesion}" for="profesion" />
+                    <h:selectOneMenu id="profesion" value="#{profesionesPorAspiranteController.selected.profesion}" title="#{bundle.CreateProfesionesPorAspiranteTitle_profesion}" required="true" requiredMessage="#{bundle.CreateProfesionesPorAspiranteRequiredMessage_profesion}">
+                        <f:selectItems value="#{profesionController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{profesionesPorAspiranteController.create}" value="#{bundle.CreateProfesionesPorAspiranteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{profesionesPorAspiranteController.prepareList}" value="#{bundle.CreateProfesionesPorAspiranteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProfesionesPorAspiranteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

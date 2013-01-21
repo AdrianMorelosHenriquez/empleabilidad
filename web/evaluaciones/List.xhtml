@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEvaluacionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEvaluacionesEmpty}" rendered="#{evaluacionesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{evaluacionesController.items.rowCount > 0}">
+                    <h:outputText value="#{evaluacionesController.pagination.pageFirstItem + 1}..#{evaluacionesController.pagination.pageLastItem + 1}/#{evaluacionesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{evaluacionesController.previous}" value="#{bundle.Previous} #{evaluacionesController.pagination.pageSize}" rendered="#{evaluacionesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{evaluacionesController.next}" value="#{bundle.Next} #{evaluacionesController.pagination.pageSize}" rendered="#{evaluacionesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{evaluacionesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvaluacionesTitle_idtest}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idtest}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvaluacionesTitle_puntuacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.puntuacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvaluacionesTitle_cualificacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cualificacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvaluacionesTitle_comentarios}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comentarios}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvaluacionesTitle_prueba}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prueba}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvaluacionesTitle_inscripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.inscripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{evaluacionesController.prepareView}" value="#{bundle.ListEvaluacionesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evaluacionesController.prepareEdit}" value="#{bundle.ListEvaluacionesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evaluacionesController.destroy}" value="#{bundle.ListEvaluacionesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{evaluacionesController.prepareCreate}" value="#{bundle.ListEvaluacionesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEvaluacionesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

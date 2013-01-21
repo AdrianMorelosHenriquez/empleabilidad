@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditInscripcionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditInscripcionLabel_idinscripcion}" for="idinscripcion" />
+                    <h:inputText id="idinscripcion" value="#{inscripcionController.selected.idinscripcion}" title="#{bundle.EditInscripcionTitle_idinscripcion}" required="true" requiredMessage="#{bundle.EditInscripcionRequiredMessage_idinscripcion}"/>
+                    <h:outputLabel value="#{bundle.EditInscripcionLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{inscripcionController.selected.fecha}" title="#{bundle.EditInscripcionTitle_fecha}" required="true" requiredMessage="#{bundle.EditInscripcionRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditInscripcionLabel_entrevista}" for="entrevista" />
+                    <h:inputText id="entrevista" value="#{inscripcionController.selected.entrevista}" title="#{bundle.EditInscripcionTitle_entrevista}" required="true" requiredMessage="#{bundle.EditInscripcionRequiredMessage_entrevista}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditInscripcionLabel_oferta}" for="oferta" />
+                    <h:selectOneMenu id="oferta" value="#{inscripcionController.selected.oferta}" title="#{bundle.EditInscripcionTitle_oferta}" required="true" requiredMessage="#{bundle.EditInscripcionRequiredMessage_oferta}">
+                        <f:selectItems value="#{ofertasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditInscripcionLabel_aspirante}" for="aspirante" />
+                    <h:selectOneMenu id="aspirante" value="#{inscripcionController.selected.aspirante}" title="#{bundle.EditInscripcionTitle_aspirante}" required="true" requiredMessage="#{bundle.EditInscripcionRequiredMessage_aspirante}">
+                        <f:selectItems value="#{datosPersonalesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{inscripcionController.update}" value="#{bundle.EditInscripcionSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditInscripcionViewLink}"/>
+                <br />
+                <h:commandLink action="#{inscripcionController.prepareList}" value="#{bundle.EditInscripcionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditInscripcionIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

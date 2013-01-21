@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOfertasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_idofertas}" for="idofertas" />
+                    <h:inputText id="idofertas" value="#{ofertasController.selected.idofertas}" title="#{bundle.CreateOfertasTitle_idofertas}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_idofertas}"/>
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_fechaStart}" for="fechaStart" />
+                    <h:inputText id="fechaStart" value="#{ofertasController.selected.fechaStart}" title="#{bundle.CreateOfertasTitle_fechaStart}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_fechaStart}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_fechaEnd}" for="fechaEnd" />
+                    <h:inputText id="fechaEnd" value="#{ofertasController.selected.fechaEnd}" title="#{bundle.CreateOfertasTitle_fechaEnd}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_fechaEnd}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_cargo}" for="cargo" />
+                    <h:inputText id="cargo" value="#{ofertasController.selected.cargo}" title="#{bundle.CreateOfertasTitle_cargo}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_cargo}"/>
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_salario}" for="salario" />
+                    <h:inputText id="salario" value="#{ofertasController.selected.salario}" title="#{bundle.CreateOfertasTitle_salario}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_salario}"/>
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{ofertasController.selected.descripcion}" title="#{bundle.CreateOfertasTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_nivelEstudiosMin}" for="nivelEstudiosMin" />
+                    <h:inputText id="nivelEstudiosMin" value="#{ofertasController.selected.nivelEstudiosMin}" title="#{bundle.CreateOfertasTitle_nivelEstudiosMin}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_nivelEstudiosMin}"/>
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_nivelEstudiosMax}" for="nivelEstudiosMax" />
+                    <h:inputText id="nivelEstudiosMax" value="#{ofertasController.selected.nivelEstudiosMax}" title="#{bundle.CreateOfertasTitle_nivelEstudiosMax}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_nivelEstudiosMax}"/>
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_profesion}" for="profesion" />
+                    <h:selectOneMenu id="profesion" value="#{ofertasController.selected.profesion}" title="#{bundle.CreateOfertasTitle_profesion}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_profesion}">
+                        <f:selectItems value="#{profesionController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateOfertasLabel_nit}" for="nit" />
+                    <h:selectOneMenu id="nit" value="#{ofertasController.selected.nit}" title="#{bundle.CreateOfertasTitle_nit}" required="true" requiredMessage="#{bundle.CreateOfertasRequiredMessage_nit}">
+                        <f:selectItems value="#{empresasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ofertasController.create}" value="#{bundle.CreateOfertasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ofertasController.prepareList}" value="#{bundle.CreateOfertasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateOfertasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
