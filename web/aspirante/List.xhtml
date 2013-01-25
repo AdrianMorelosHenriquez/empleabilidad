@@ -1,10 +1,10 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
+
     <f:view contentType="text/html">
         <h:head>
             <f:facet name="first">
@@ -27,7 +27,7 @@
                                         <p:menuitem value="Ver detalles" url="#"  icon="ui-icon-help" />
                                         <p:menuitem value="Actualizar" url="#" icon="ui-icon-gear" />
                                         <p:menuitem value="Listar" url="/faces/aspirante/List.xhtml" icon="ui-icon-help" />
-                                        <p:menuitem value="Filtro" url="#" icon="ui-icon-gear" />
+                                        <p:menuitem value="Filtro" url="#" vicon="ui-icon-gear" />
                                         <p:separator />
                                         <p:menuitem value="Quit" url="#" />
                                     </p:submenu>
@@ -58,7 +58,37 @@
                         </div>
                     </div>  
                     <div id="right">  
+                        <h:form id="carForm">  
+                            <div class="message blue">
+                                Ingresar tu hoja de vida te permitirá postularte a todas las búsquedas de empleos que se publiquen en el sitio y, si así lo deseas, las empresas y consultoras que accedan a nuestra base de datos en busca de candidatos podrán consultarlo.
+                                El proceso de ingreso de la hoja de vida está dividido en pasos. Al finalizar la carga de tus datos presiona el botón "guardar" al final de la página antes de ir al paso siguiente. Los ítems destacados en naranja son obligatorios.
+                            </div>
+                            <p:fieldset legend="Hojas de vida Registradas">  
+                                <p:dataTable id="availableCars" value="#{datosPersonalesController.items}" var="item">  
+                                    <p:column headerText="Opciones" style="width:45px">  
+                                        <h:outputText id="dragIcon"  
+                                                      styleClass="ui-icon ui-icon-arrow-4" />  
+                                        <p:draggable for="dragIcon" revert="true" />  
+                                    </p:column>  
 
+                                    <p:column headerText="ID">  
+                                        <h:outputText value="#{item.id}" />  
+                                    </p:column>  
+
+                                    <p:column headerText="Nombres">  
+                                        <h:outputText value="#{item.nombres} #{item.apellido1}" />  
+                                    </p:column>  
+
+                                    <p:column headerText="Telefono">  
+                                        <h:outputText value="#{item.telefono}" />  
+                                    </p:column>  
+
+                                    <p:column headerText="E-Mail">  
+                                        <h:outputText value="#{item.email}" />  
+                                    </p:column>  
+                                </p:dataTable>  
+                            </p:fieldset>  
+                        </h:form>  
                     </div>  
                 </div>  
             </div>
@@ -66,20 +96,3 @@
     </f:view>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

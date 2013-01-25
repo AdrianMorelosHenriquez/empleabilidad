@@ -7,6 +7,8 @@ package jpa.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,6 +24,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.util.HashMap;  
+import java.util.Map;  
+  
+import javax.faces.application.FacesMessage;  
+import javax.faces.context.FacesContext; 
 
 /**
  *
@@ -47,6 +54,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "DatosPersonales.findByEmail", query = "SELECT d FROM DatosPersonales d WHERE d.email = :email"),
     @NamedQuery(name = "DatosPersonales.findByDescripcion", query = "SELECT d FROM DatosPersonales d WHERE d.descripcion = :descripcion")})
 public class DatosPersonales implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -102,6 +110,8 @@ public class DatosPersonales implements Serializable {
     private Collection<ExperienciaLaboral> experienciaLaboralCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aspirante")
     private Collection<Estudios> estudiosCollection;
+    
+    
 
     public DatosPersonales() {
     }
@@ -305,7 +315,8 @@ public class DatosPersonales implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.DatosPersonales[ id=" + id + " ]";
+       return "jpa.entities.DatosPersonales[ id=" + id + " ]";
     }
+    
     
 }

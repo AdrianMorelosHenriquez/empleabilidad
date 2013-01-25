@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+        <h:body>
+
+            <div id="wrapper"> 
+                <div id="container">  
+                    <div id="top">
+                        <div id="logo" ></div>
+                        <div class="slogan">Líderes en ofertas de empleo y oportunidades laborales en Latinoamérica.</div>
+                        <div id="menu">
+                            <ul class="sf-js-enabled"> 
+                                <li><a href="dashboard.html">Mi Cuenta</a></li> 
+                                <li class="current"><a href="forms.html">Modificar Hoja de Vida</a> </li>
+                                <li><a href="charts.html">Ver Postulaciones Realizadas</a></li>
+                                <li><a href="uielements.html">Modificar Datos Personales</a></li>
+                            </ul>
+                        </div>
+                    </div>  
+                    <div id="left"> 
+                        <div class="box statics">
+                            <div class="content">
+                                <ul>
+                                    <li><h2>Mi Cuenta</h2></li>
+                                    <li><h:link outcome="/aspirante/List" value="Lista de Aspirantes"/><div class="info red"><span>#{datosPersonalesController.pagination.itemsCount}</span></div></li>
+                                    <li>Ver Postulaciones<div class="info blue"><span>654</span></div></li>
+                                    <li>Profesiones por Aspirantes<div class="info green"><span>7</span></div></li>
+                                    <li>Lista de Aspirantes <div class="info red"><span>999</span></div></li>
+                                    <li>Evaluaciones<div class="info blue"><span>654</span></div></li>
+                                    <li>Capacidades por estudios<div class="info blue"><span>654</span></div></li>
+                                    <li>Capacidad por experiencias<div class="info green"><span>7</span></div></li>
+                                    <li>Capacidades por ofertas<div class="info black"><span>999</span></div></li>
+                                    <li>Salir</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="box search">
+                            <div class="content">
+                                <form action="">
+                                    <input type="text" value="" placeholder="Busqueda" />
+                                    <button type="submit"></button> 
+                                </form>
+                            </div>
+                        </div>
+                    </div>  
+                    <div id="right">  
+                        <h:form styleClass="">
+                            <div class="message blue">
+                                Ingresar tu hoja de vida te permitirá postularte a todas las búsquedas de empleos que se publiquen en el sitio y, si así lo deseas, las empresas y consultoras que accedan a nuestra base de datos en busca de candidatos podrán consultarlo.
+                                El proceso de ingreso de la hoja de vida está dividido en pasos. Al finalizar la carga de tus datos presiona el botón "guardar" al final de la página antes de ir al paso siguiente. Los ítems destacados en naranja son obligatorios.
+                            </div>
+                            <h:panelGroup id="messagePanel" layout="block">
+                                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                            </h:panelGroup>
+                            <h:outputText escape="false" value="#{bundle.ListDatosPersonalesEmpty}" rendered="#{datosPersonalesController.items.rowCount == 0}"/>
+                            <h:panelGroup rendered="#{datosPersonalesController.items.rowCount > 0}">
+                                <h:commandLink action="#{datosPersonalesController.previous}" value="#{bundle.Previous} #{datosPersonalesController.pagination.pageSize}" rendered="#{datosPersonalesController.pagination.hasPreviousPage}"/>&nbsp;
+                                <h:commandLink action="#{datosPersonalesController.next}" value="#{bundle.Next} #{datosPersonalesController.pagination.pageSize}" rendered="#{datosPersonalesController.pagination.hasNextPage}"/>&nbsp;
+                                <h:dataTable class="margin" value="#{datosPersonalesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListDatosPersonalesTitle_nombres}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.nombres}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Apellidos"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.apellido1}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListDatosPersonalesTitle_cudad}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.cudad}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListDatosPersonalesTitle_email}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.email}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListDatosPersonalesTitle_celular}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.celular}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Opciones"/>
+                                        </f:facet>
+                                        <div class="tool-view">
+                                            <p:lightBox>  
+                                                <h:outputLink value="#" title="">  
+                                                    <h:outputText value="Ver"/>  
+                                                </h:outputLink>  
+                                                <f:facet name="inline">  
+                                                    <div class="box">
+                                                        <div class="title">
+                                                            Información del Aspirante
+                                                        </div>
+                                                        <div class="content">
+                                                            <h:panelGrid columns="2">
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_id}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.id}" title="#{bundle.ViewDatosPersonalesTitle_id}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_nombres}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.nombres}" title="#{bundle.ViewDatosPersonalesTitle_nombres}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_apellido1}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.apellido1}" title="#{bundle.ViewDatosPersonalesTitle_apellido1}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_sexo}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.sexo}" title="#{bundle.ViewDatosPersonalesTitle_sexo}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_estadoCivil}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.estadoCivil}" title="#{bundle.ViewDatosPersonalesTitle_estadoCivil}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_lugarNacimiento}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.lugarNacimiento}" title="#{bundle.ViewDatosPersonalesTitle_lugarNacimiento}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_fechaNacimiento}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.fechaNacimiento}" title="#{bundle.ViewDatosPersonalesTitle_fechaNacimiento}">
+                                                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                                </h:outputText>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_direccion}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.direccion}" title="#{bundle.ViewDatosPersonalesTitle_direccion}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_barrio}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.barrio}" title="#{bundle.ViewDatosPersonalesTitle_barrio}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_cudad}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.cudad}" title="#{bundle.ViewDatosPersonalesTitle_cudad}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_telefono}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.telefono}" title="#{bundle.ViewDatosPersonalesTitle_telefono}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_celular}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.celular}" title="#{bundle.ViewDatosPersonalesTitle_celular}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_email}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.email}" title="#{bundle.ViewDatosPersonalesTitle_email}"/>
+                                                                <h:outputText value="#{bundle.ViewDatosPersonalesLabel_descripcion}"/>
+                                                                <h:outputText value="#{datosPersonalesController.selected.descripcion}" title="#{bundle.ViewDatosPersonalesTitle_descripcion}"/>
+                                                            </h:panelGrid>
+                                                        </div>
+                                                    </div>
+                                                </f:facet>  
+                                            </p:lightBox>
+                                            <h:outputText value=" "/>
+                                            <h:commandLink action="#{datosPersonalesController.prepareEdit}" value="Editar"/>
+                                            <h:outputText value=" "/>
+                                            <h:commandLink action="#{datosPersonalesController.destroy}" value="Eliminar"/>
+                                        </div>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:panelGroup>
+                            <div class="opciones">
+                                <div class="opciones-middle">
+                                    <h:commandLink action="#{datosPersonalesController.prepareCreate}" value="Crear aspirante" class="btn btn-small" immediate="true" />
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>  
+                </div>  
+            </div>
+        </h:body>
+    </f:view>
+</html>
+
