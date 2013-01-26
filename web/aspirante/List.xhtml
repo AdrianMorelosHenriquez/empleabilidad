@@ -11,46 +11,47 @@
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
-                            <h:panelGroup id="messagePanel" layout="block">
-                                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                            </h:panelGroup>
-                            <h:outputText escape="false" value="#{bundle.ListAreaEmpty}" rendered="#{areaController.items.rowCount == 0}"/>
-                            <h:panelGroup rendered="#{areaController.items.rowCount > 0}">
-                                <h:outputText value="#{areaController.pagination.pageFirstItem + 1}..#{areaController.pagination.pageLastItem + 1}/#{areaController.pagination.itemsCount}"/>&nbsp;
-                                <h:commandLink action="#{areaController.previous}" value="Anteriores #{areaController.pagination.pageSize}" rendered="#{areaController.pagination.hasPreviousPage}"/>&nbsp;
-                                <h:commandLink action="#{areaController.next}" value="Sigiuentes #{areaController.pagination.pageSize}" rendered="#{areaController.pagination.hasNextPage}"/>&nbsp;
-                                <p:fieldset legend="Areas"> 
-                                    <p:dataTable value="#{areaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all"    >
-                                        <p:column headerText="id">
-                                            <h:outputText value="#{item.idarea}"/>
-                                        </p:column>
-                                        <p:column headerText="#{bundle.ListAreaTitle_nombre}"> 
-                                            <h:outputText value="#{item.nombre}"/>
-                                        </p:column>
-                                        <p:column headerText="#{bundle.ListAreaTitle_categoria}">  
-                                            <h:outputText value="#{item.categoria}"/>
-                                        </p:column>
-                                        <p:column headerText="#{bundle.ListAreaTitle_profesion}"> 
-                                            <h:outputText value="#{item.profesion}"/>
-                                        </p:column>
-                                        <p:column headerText="Opciones"> 
-                                            <h:commandLink action="#{areaController.prepareView}" value="Ver"/>
-                                            <h:outputText value=" "/>
-                                            <h:commandLink action="#{areaController.prepareEdit}" value="Editar"/>
-                                            <h:outputText value=" "/>
-                                            <h:commandLink action="#{areaController.destroy}" value="Eliminar"/>
-                                        </p:column>
-                                    </p:dataTable>
-                                </p:fieldset> 
-                            </h:panelGroup>
-                            <br />
-                            <h:commandLink action="#{areaController.prepareCreate}" value="#{bundle.ListAreaCreateLink}"/>
-                            <br />
-                            <br />
-                            <h:link outcome="/index" value="#{bundle.ListAreaIndexLink}"/>
-                        </h:form>
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDatosPersonalesEmpty}" rendered="#{datosPersonalesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{datosPersonalesController.items.rowCount > 0}">
+                    <h:outputText value="#{datosPersonalesController.pagination.pageFirstItem + 1}..#{datosPersonalesController.pagination.pageLastItem + 1}/#{datosPersonalesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{datosPersonalesController.previous}" value="#{bundle.Previous} #{datosPersonalesController.pagination.pageSize}" rendered="#{datosPersonalesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{datosPersonalesController.next}" value="#{bundle.Next} #{datosPersonalesController.pagination.pageSize}" rendered="#{datosPersonalesController.pagination.hasNextPage}"/>&nbsp;
+                    <p:fieldset legend="Hojas de vidas">  
+                    <p:dataTable value="#{datosPersonalesController.items}" var="item" border="0" cellpadding="2" cellspacing="0">
+                
+                        <p:column headerText="Nombres"> 
+                                  <h:outputText value="#{item.nombres} #{item.apellido1}"/>
+                        </p:column>
+                        <p:column headerText="Ciudad"> 
+                            <h:outputText value="#{item.cudad}"/>
+                        </p:column>
+                        <p:column headerText="Telefonos"> 
+                            <h:outputText value="#{item.telefono} #{item.celular}"/>
+                        </p:column>
+                        <p:column headerText="E-mail"> 
+                            <h:outputText value="#{item.email}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Opciones"> 
+                            <h:commandLink action="#{datosPersonalesController.preparePreview}" value="Ver"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{datosPersonalesController.prepareCreateDatosPersonales}" value="Editar"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{datosPersonalesController.destroy}" value="Eliminar"/>
+                        </p:column>
+                    </p:dataTable>
+                    </p:fieldset>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{datosPersonalesController.prepareCreate}" value="#{bundle.ListDatosPersonalesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDatosPersonalesIndexLink}"/>
+            </h:form>
 
-           
         </ui:define>
     </ui:composition>
 
