@@ -1,0 +1,158 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div>TODO write content</div>
+
+        <select name="area" id="area" onchange="showSectores(this.value, 'areaDeTrabajo', true);" style="">
+            <option value="">Selecciona uno</option>
+            <option value="1">Administración y Contabilidad</option>
+            <option value="2">Almacenamiento / Logística / Distribución</option>
+            <option value="15">Arquitectura</option>
+            <option value="3">Comercial / Ventas</option>
+            <option value="16">Comercio Exterior</option>
+            <option value="4">Compras  y Abastecimiento</option><option value="18">Diseño</option><option value="19">Educación y Psicopedagogía</option><option value="40">Estética y Cuidado Personal</option><option value="20">Finanzas y Economía</option><option value="21">Gastronomía</option><option value="5">Gerencia / Dirección / Alta Dirección</option><option value="41">Independientes</option><option value="11">Ingeniería</option><option value="7">Jóvenes Profesionales / Pasantías</option><option value="8">Legales</option><option value="9">Marketing y Publicidad</option><option value="32">Medios y Comunicación</option><option value="22">Música / Arte / Cultura</option><option value="23">Producción</option><option value="24">Puestos Operativos / Otros</option><option value="25">Química / Bioquímica</option><option value="12">Recepción / Secretaria / Atención al cliente</option><option value="13">Recursos Humanos</option><option value="14">Relaciones Institucionales / Públicas</option><option value="26">Salud</option><option value="6">Sistemas / Tecnología / IT</option></select>
+
+        <select name="Major" id="Major" onchange="" style="">
+            <optgroup label="Comunicación y Ciencias Sociales">
+                <option value="106">Antropología</option>
+                <option value="127">Ciencias Políticas</option>
+                <option value="131">Comunicación Audiovisual</option>
+                <option value="132">Comunicación Social</option>
+                <option value="191">Intérprete</option>
+                <option value="210">Periodismo</option>
+                <option value="216">Publicidad</option>
+                <option value="219">Relaciones Internacionales</option>
+                <option value="220">Relaciones Públicas</option>
+                <option value="224">Sociología</option>
+                <option value="231">Trabajo Social</option>
+                <option value="232">Traducción</option>
+            </optgroup><optgroup label="Diseño y Arquitectura">
+                <option value="109">Arquitectura</option>
+                <option value="137">Dibujo Técnico</option>
+                <option value="138">Diseño de Imagen y Sonido</option>
+                <option value="139">Diseño de Vestuario / Textil / Modas</option>
+                <option value="140">Diseño Gráfico</option>
+                <option value="141">Diseño Industrial</option>
+                <option value="209">Paisajismo</option>
+            </optgroup><optgroup label="Económicas">
+                <option value="98">Actuarial</option>
+                <option value="100">Adm. Agropecuaria</option>
+                <option value="101">Adm. de Empresas</option>
+                <option value="102">Adm. y Gestión Pública</option>
+                <option value="128">Comercio Internacional / Exterior</option>
+                <option value="135">Contabilidad / Auditoría</option>
+                <option value="143">Economía</option>
+                <option value="151">Finanzas</option>
+                <option value="196">Marketing / Comercialización</option>
+                <option value="237">Negociación</option>
+                <option value="207">Organización Industrial</option>
+                <option value="218">Recursos Humanos</option>
+            </optgroup><optgroup label="Educación">
+                <option value="124">Ciencias de la Educación</option>
+                <option value="125">Ciencias del Ejercicio / Educación Física</option>
+                <option value="144">Educación</option>
+            </optgroup><optgroup label="Exactas y Naturales">
+                <option value="99">Acuicultura</option>
+                <option value="103">Agrimensor</option>
+                <option value="108">Arqueología</option>
+                <option value="113">Astronomía</option>
+                <option value="117">Biofísica</option>
+                <option value="118">Bioingeniería</option>
+                <option value="119">Biología</option>
+                <option value="120">Bioquímica</option>
+                <option value="123">Cartografía</option>
+                <option value="126">Ciencias Físicas</option>
+                <option value="142">Ecología</option>
+                <option value="157">Geofísica</option>
+                <option value="158">Geografía</option>
+                <option value="159">Geología / Geomensura / Topografía</option>
+                <option value="197">Matemáticas</option>
+                <option value="200">Medio Ambiente</option>
+                <option value="205">Oceanografía</option>
+                <option value="217">Química</option>
+                <option value="226">Tecnología de Alimentos</option>
+            </optgroup>
+            <optgroup label="Filosofía y Letras">
+                <option value="150">Filosofía</option>
+                <option value="161">Historia</option>
+                <option value="194">Literatura</option>
+            </optgroup><optgroup label="Hotelería, Gastronomía y Turismo">
+                <option value="156">Gastronomía / Cocina</option>
+                <option value="162">Hotelería</option>
+                <option value="234">Turismo</option>
+            </optgroup>
+            <optgroup label="Ingeniería y Tecnicatura">
+                <option value="163">Ing. Aeroespacial</option>
+                <option value="238">Ing. Agroindustrial</option>
+                <option value="164">Ing. Agropecuario</option>
+                <option value="165">Ing. Alimentos</option>
+                <option value="166">Ing. Ambiental</option>
+                <option value="167">Ing. Civil</option>
+                <option value="169">Ing. Eléctrica</option>
+                <option value="170">Ing. Eléctromecánico</option>
+                <option value="171">Ing. Eléctronica</option>
+                <option value="173">Ing. en Minas</option>
+                <option value="174">Ing. Forestal</option>
+                <option value="175">Ing. Hidráulica</option>
+                <option value="176">Ing. Industrial</option>
+                <option value="178">Ing. Matemática</option>
+                <option value="180">Ing. Mecánica / Metalúrgica</option>
+                <option value="243">Ing. Mecatrónica</option>
+                <option value="181">Ing. Naval</option>
+                <option value="182">Ing. Nuclear</option>
+                <option value="184">Ing. Pesquera / Cultivos Marinos</option>
+                <option value="185">Ing. Petróleo</option>
+                <option value="186">Ing. Química</option>
+                <option value="187">Ing. Recursos Hídricos</option>
+                <option value="188">Ing. Sonido</option>
+                <option value="189">Ing. Telecomunicaciones</option>
+                <option value="222">Seguridad Industrial</option>
+            </optgroup>
+            <optgroup label="Legales">
+                <option value="136">Derecho</option>
+                <option value="148">Escribanía</option>
+            </optgroup><optgroup label="Música, Arte y Cultura">
+                <option value="115">Bellas Artes</option>
+                <option value="116">Bibliotecnología</option>
+                <option value="155">Fotografía</option>
+                <option value="203">Música</option>
+            </optgroup><optgroup label="Otros">
+                <option value="221">Secretariado</option>
+            </optgroup><optgroup label="Psicología">
+                <option value="214">Psicología</option>
+                <option value="215">Psicopedagogía</option>
+            </optgroup><optgroup label="Salud">
+                <option value="239">Bacteriología</option>
+                <option value="147">Enfermería</option>
+                <option value="149">Farmacia</option>
+                <option value="153">Fisioterapia</option>
+                <option value="154">Fonoaudiología</option>
+                <option value="241">Histopatología</option>
+                <option value="192">Kinesiología</option>
+                <option value="199">Medicina</option>
+                <option value="240">Microbiología</option>
+                <option value="204">Nutrición</option>
+                <option value="206">Odontología</option>
+                <option value="242">Químico Farmacéutico</option>
+                <option value="230">Terapia Ocupacional</option>
+                <option value="236">Veterinaria / Zootecnia</option>
+            </optgroup><optgroup label="Sistemas">
+                <option value="105">Análisis de Sistemas</option>
+                <option value="130">Computación</option>
+                <option value="177">Ing. Informática / Sistemas</option>
+                <option value="213">Programación</option>
+                <option value="227">Tecnología de la Información</option>
+            </optgroup>
+        </select>
+
+
+    </body>
+</html>

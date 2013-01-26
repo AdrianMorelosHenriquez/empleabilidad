@@ -140,7 +140,8 @@ public class Area implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Area[ idarea=" + idarea + " ]";
+       // return "jpa.entities.Area[ idarea=" + idarea + " ]";
+        return nombre;
     }
     
 }

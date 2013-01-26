@@ -94,7 +94,20 @@ public class DatosPersonalesController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
+    
+    public String preparePreview() {
+        current = (DatosPersonales) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "Preview";
+    }
 
+    public String prepareCreateDatosPersonales() {
+        current = (DatosPersonales) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "CreateDatosPersonales";
+    }
+    
+    
     public String update() {
         try {
             getFacade().edit(current);
