@@ -24,53 +24,106 @@
                 <p:menuitem value="Previsualizar" url="/faces/aspirante/Preview.xhtml" icon="ui-icon-search" />
             </p:menubar>
             <br/>
-            <p:fieldset legend="HOJA DE VIDA"> 
-                <h:form>
-                    <h:panelGrid columns="2">
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_id}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.id}" title="#{bundle.ViewDatosPersonalesTitle_id}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_nombres}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.nombres}" title="#{bundle.ViewDatosPersonalesTitle_nombres}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_apellido1}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.apellido1}" title="#{bundle.ViewDatosPersonalesTitle_apellido1}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_sexo}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.sexo}" title="#{bundle.ViewDatosPersonalesTitle_sexo}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_estadoCivil}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.estadoCivil}" title="#{bundle.ViewDatosPersonalesTitle_estadoCivil}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_lugarNacimiento}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.lugarNacimiento}" title="#{bundle.ViewDatosPersonalesTitle_lugarNacimiento}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_fechaNacimiento}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.fechaNacimiento}" title="#{bundle.ViewDatosPersonalesTitle_fechaNacimiento}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_direccion}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.direccion}" title="#{bundle.ViewDatosPersonalesTitle_direccion}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_barrio}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.barrio}" title="#{bundle.ViewDatosPersonalesTitle_barrio}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_cudad}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.cudad}" title="#{bundle.ViewDatosPersonalesTitle_cudad}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_telefono}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.telefono}" title="#{bundle.ViewDatosPersonalesTitle_telefono}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_celular}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.celular}" title="#{bundle.ViewDatosPersonalesTitle_celular}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_email}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.email}" title="#{bundle.ViewDatosPersonalesTitle_email}"/>
-                        <h:outputText value="#{bundle.ViewDatosPersonalesLabel_descripcion}"/>
-                        <h:outputText value="#{datosPersonalesController.selected.descripcion}" title="#{bundle.ViewDatosPersonalesTitle_descripcion}"/>
-                    </h:panelGrid>
+            <p:fieldset legend="PREVISUALIZAR HOJA DE VIDA"> 
+                <p:fieldset legend="Datos de contacto" toggleable="true" toggleSpeed="500"> 
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Nombres"/>
+                            <h:outputText value="#{datosPersonalesController.selected.nombres} #{datosPersonalesController.selected.apellido1}" title="#{bundle.ViewDatosPersonalesTitle_nombres}"/>
+                           
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_sexo}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.sexo}" title="#{bundle.ViewDatosPersonalesTitle_sexo}"/>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_estadoCivil}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.estadoCivil}" title="#{bundle.ViewDatosPersonalesTitle_estadoCivil}"/>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_lugarNacimiento}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.lugarNacimiento}" title="#{bundle.ViewDatosPersonalesTitle_lugarNacimiento}"/>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_fechaNacimiento}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.fechaNacimiento}" title="#{bundle.ViewDatosPersonalesTitle_fechaNacimiento}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_direccion}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.direccion}" title="#{bundle.ViewDatosPersonalesTitle_direccion}"/>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_barrio}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.barrio}" title="#{bundle.ViewDatosPersonalesTitle_barrio}"/>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_cudad}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.cudad}" title="#{bundle.ViewDatosPersonalesTitle_cudad}"/>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_telefono}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.telefono}" title="#{bundle.ViewDatosPersonalesTitle_telefono}"/>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_celular}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.celular}" title="#{bundle.ViewDatosPersonalesTitle_celular}"/>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_email}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.email}" title="#{bundle.ViewDatosPersonalesTitle_email}"/>
+                            <h:outputText value="#{bundle.ViewDatosPersonalesLabel_descripcion}"/>
+                            <h:outputText value="#{datosPersonalesController.selected.descripcion}" title="#{bundle.ViewDatosPersonalesTitle_descripcion}"/>
+                        </h:panelGrid>
+                        <br />
+                        <h:link outcome="CreateDatosPersonales" value="Editar datos de contacto"/>
+                    </h:form>
                     <br />
-                    <h:commandLink action="#{datosPersonalesController.destroyAndView}" value="#{bundle.ViewDatosPersonalesDestroyLink}"/>
-                    <br />
-                    <br />
-                    <h:link outcome="Edit" value="#{bundle.ViewDatosPersonalesEditLink}"/>
-                    <br />
-                    <h:commandLink action="#{datosPersonalesController.prepareCreate}" value="#{bundle.ViewDatosPersonalesCreateLink}" />
-                    <br />
-                    <h:commandLink action="#{datosPersonalesController.prepareList}" value="#{bundle.ViewDatosPersonalesShowAllLink}"/>
-                    <br />
-                    <br />
-                    <h:link outcome="/index" value="#{bundle.ViewDatosPersonalesIndexLink}"/>
-                </h:form>
-            </p:fieldset>  </ui:define>
+                </p:fieldset>
+                <br />
+                <p:fieldset legend="Estudios" toggleable="true" toggleSpeed="500"> 
+                    <h:form styleClass="jsfcrud_list_form">
+                        <h:outputText escape="false" value="#{bundle.ListEstudiosEmpty}" rendered="#{estudiosController.items.rowCount == 0}"/>
+                        <h:panelGroup rendered="#{estudiosController.items.rowCount > 0}">
+                            <h:outputText value="#{estudiosController.pagination.pageFirstItem + 1}..#{estudiosController.pagination.pageLastItem + 1}/#{estudiosController.pagination.itemsCount}"/>&nbsp;
+                            <h:commandLink action="#{estudiosController.previous}" value="#{bundle.Previous} #{estudiosController.pagination.pageSize}" rendered="#{estudiosController.pagination.hasPreviousPage}"/>&nbsp;
+                            <h:commandLink action="#{estudiosController.next}" value="#{bundle.Next} #{estudiosController.pagination.pageSize}" rendered="#{estudiosController.pagination.hasNextPage}"/>&nbsp;
+                            <h:dataTable value="#{estudiosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudiosTitle_titulo}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.titulo}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudiosTitle_institucion}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.institucion}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudiosTitle_ciudad}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.ciudad}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudiosTitle_nivelEstudio}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nivelEstudio}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudiosTitle_estadoEstudio}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estadoEstudio}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudiosTitle_areaEstudio}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.areaEstudio}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="&nbsp;"/>
+                                    </f:facet>
+                                    <h:commandLink action="#{estudiosController.prepareView}" value="#{bundle.ListEstudiosViewLink}"/>
+                                    <h:outputText value=" "/>
+                                    <h:commandLink action="#{estudiosController.prepareEdit}" value="#{bundle.ListEstudiosEditLink}"/>
+                                    <h:outputText value=" "/>
+                                    <h:commandLink action="#{estudiosController.destroy}" value="#{bundle.ListEstudiosDestroyLink}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </h:panelGroup>
+                        <br />
+                        <h:commandLink action="#{estudiosController.prepareCreate}" value="#{bundle.ListEstudiosCreateLink}"/>
+                        <br />
+                    </h:form>
+                </p:fieldset> 
+            </p:fieldset> 
+        </ui:define>
     </ui:composition>
 </html>
